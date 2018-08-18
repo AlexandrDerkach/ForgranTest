@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>test</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.min.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div class="exchange--wrapper">
+		<div id="exchangeInner" class="exchange__inner js-exchange-inner">
+			<div class="exchange__inner--header">
+				<div class="exchange-inner-header_overlay"></div>
+				<div class="exchange--title">
+					<h1>Select currency to exhange:</h1>
+				</div>
+				<div id="exchangeSelect" class="exchange--select js-exchange-select">
+					<div id="exchangeSelectItem" class="exchange__current--item js-exchange-select-item" onclick="TestPageCommon.openDropExchangeList(this)"></div>
+					<input type="hidden" class="js-selected-item-id" value="">
+					<ul id="selectList" class="select--list js-select-list">
+						<li class="select-list__item js-select-list-item list-item-active">
+							<a href="javascript:void(0)" onclick="TestPageCommon.selectExchangeItem(this);">USD</a>
+						</li>
+						<li class="select-list__item js-select-list-item">
+							<a href="javascript:void(0)" onclick="TestPageCommon.selectExchangeItem(this);">EUR</a>
+						</li>
+						<li class="select-list__item js-select-list-item">
+							<a href="javascript:void(0)" onclick="TestPageCommon.selectExchangeItem(this);">RUB</a>
+						</li>
+						<li class="select-list__item js-select-list-item">
+							<a href="javascript:void(0)" onclick="TestPageCommon.selectExchangeItem(this);">GBP</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="exchange__inner--items">
+				<div id="ethereumBlock" class="exchange__inner--block ethereum--block js-exchange-inner-block js-ethereum-block">
+					<div class="exchange__inner-block--title">
+						<h4>Ethereum</h4>
+					</div>
+					<div class="exchange__inner-block--img"></div>
+					<div class="exchange__inner-text--block">
+						<div class="price--row">
+							<div class="price--title">Price:</div>
+							<div class="price-value--block">
+								<span class="short-currency--name js-short-currency-name">$</span><span class="price--value js-price--value">22 252.92</span>
+							</div>
+						</div>
+						<div class="precet-change--row">
+							<div class="percent--label">Percent change</div>
+							<div class="persent--switch js-percent-switch" onclick="TestPageCommon.initSwitchClickWorking(this)">
+								<!--<input type="checkbox">-->
+								<span class="exchange--slider round switch-checked js-exchange-slider"></span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-an-hour">
+							<div class="changes-for-period--label">Hour change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-hour-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-day">
+							<div class="changes-for-period--label">Day change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-day-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-week">
+							<div class="changes-for-period--label">Week change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-week-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-month">
+							<div class="changes-for-period--label">Month change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-month-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="litecoinBlock" class="exchange__inner--block litecoin--block js-exchange-inner-block js-litecoin-block">
+					<div class="exchange__inner-block--title">
+						<h4>Litecoin</h4>
+					</div>
+					<div class="exchange__inner-block--img"></div>
+					<div class="exchange__inner-text--block">
+						<div class="price--row">
+							<div class="price--title">Price:</div>
+							<div class="price-value--block">
+								<span class="short-currency--name js-short-currency-name">$</span><span class="price--value js-price--value">22 252.92</span>
+							</div>
+						</div>
+						<div class="precet-change--row">
+							<div class="percent--label">Percent change</div>
+							<div class="persent--switch js-percent-switch" onclick="TestPageCommon.initSwitchClickWorking(this)">
+								<!--<input type="checkbox">-->
+								<span class="exchange--slider round switch-checked js-exchange-slider"></span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-an-hour">
+							<div class="changes-for-period--label">Hour change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-hour-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-day">
+							<div class="changes-for-period--label">Day change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-day-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-week">
+							<div class="changes-for-period--label">Week change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-week-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-month">
+							<div class="changes-for-period--label">Month change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-month-changes-value">+266</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="bitcoinBlock" class="exchange__inner--block bitcoin--block js-exchange-inner-block js-bitcoin-block">
+					<div class="exchange__inner-block--title">
+						<h4>Bitcoin</h4>
+					</div>
+					<div class="exchange__inner-block--img"></div>
+					<div class="exchange__inner-text--block">
+						<div class="price--row">
+							<div class="price--title">Price:</div>
+							<div class="price-value--block">
+								<span class="short-currency--name js-short-currency-name">$</span>
+								<span class="price--value js-price--value">22 252.92</span>
+							</div>
+						</div>
+						<div class="precet-change--row">
+							<div class="percent--label">Percent change</div>
+							<div class="persent--switch js-percent-switch" onclick="TestPageCommon.initSwitchClickWorking(this)">
+								<!--<input type="checkbox">-->
+								<span class="exchange--slider round js-exchange-slider"></span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-an-hour">
+							<div class="changes-for-period--label">Hour change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-hour-changes-value">+26</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-day">
+							<div class="changes-for-period--label">Day change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-day-changes-value">-20</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-week">
+							<div class="changes-for-period--label">Week change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-week-changes-value">+26</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+						<div class="changes-for-period-row changes-for-a-month">
+							<div class="changes-for-period--label">Month change</div>
+							<div class="changes-for-period-percent">
+								<span class="period__changes--value js-month-changes-value">+26</span>
+								<span class="js-short-type-points-name">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>bindEvents();</script>
+
+	<!--preloader-->
+	<style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background: #336E7B url(http://hello-site.ru//main/images/preloads/circles.svg) center center no-repeat;background-size:190px;}</style>
+	<div id="hellopreloader"><div id="hellopreloader_preload"></div></div>
+	<script type="text/javascript">
+		var hellopreloader = document.getElementById("hellopreloader_preload");
+		function fadeOutnojquery(el){el.style.opacity = 1;
+		var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;
+		if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);
+		hellopreloader.style.display = "none";}},16);}
+		window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},500);};
+	</script>
+</body>
+</html>

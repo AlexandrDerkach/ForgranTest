@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+body
+{
+  font: 10px 'Roboto', Verdana, Arial;
+  color: #fff;
+}
+
+.exchange--wrapper
+{
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  background: url('../img/main_bg.png') no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.exchange__inner
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /*max-width: 988px;*/
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 69px;
+}
+
+.exchange__inner--header
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  padding: 21px 24px;
+}
+
+.exchange-inner-header_overlay
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  left: 0;
+  top: 0;
+  background-color: #fcfcfc;
+  opacity: 0.02;
+}
+
+.exchange--title
+{
+  margin: 0 auto;
+  white-space: nowrap;
+  h1
+  {
+    font-size: 32px;
+  }
+}
+
+.exchange--select
+{
+  width: 100%;
+  max-width: 299px;
+  margin-left: 30px;
+  margin-right: auto;
+  position: relative;
+
+  .select--list
+  {
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #53e9ff;
+    background: #14222b;
+    font-size: 16px;
+
+    .select-list__item
+    {
+      width: 100%;
+        a
+        {
+          display: block;
+          width: 100%;
+          padding: 9px 18px;
+          color: #82898e;
+        }
+
+      &:first-child
+      {
+        a
+        {
+          padding-top: 18px;
+        }
+      }
+
+      &:last-child
+      {
+        a
+        {
+          padding-bottom: 18px;
+        }
+      }
+    }
+  }
+}
+
+.exchange__current--item
+{
+  width: 100%;
+  padding: 23px 18px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #53e9ff;
+  background: transparent;
+  font-size: 16px;
+  color: #82898e;
+}
+
+.list-item-active
+{
+  display: none;
+}
+
+.exchange__inner--items
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.exchange__inner--block
+{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 310px;
+  padding: 24px 30px;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+.exchange__inner-block--img
+{
+  width: 150px;
+  height: 145px;
+  margin: 20px 0 15px;
+}
+
+.ethereum--block
+{
+  background:  url('../img/ethereum_bg.png') no-repeat center center;;
+  background-size: 100% 100%;
+
+  .exchange__inner-block--img
+  {
+    width: 190px;
+    background: url('../img/ethereum.png') no-repeat center center;
+    background-size: 100% 100%;
+  }
+
+  .changes-for-period--label
+  {
+    color: #425b48;
+  }
+}
+
+.litecoin--block
+{
+  background:  url('../img/litecoin_bg.png') no-repeat center center;;
+  background-size: 100% 100%;
+
+  .exchange__inner-block--img
+  {
+    background: url('../img/Litecoin.png') no-repeat center center;
+    background-size: 100% 100%;
+  }
+
+  .changes-for-period--label
+  {
+    color: #606060;
+  }
+}
+
+.bitcoin--block
+{
+  background: url('../img/bitcoin_bg.png') no-repeat center center;
+  background-size: cover;
+
+  .exchange__inner-block--img
+  {
+    background: url('../img/bitcoin_icon.png') no-repeat center center;
+    background-size: 100% 100%;
+  }
+
+  .changes-for-period--label
+  {
+    color: #5e4437;
+  }
+}
+
+.exchange__inner-text--block
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.price--row,
+.precet-change--row,
+.changes-for-period-row
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.price--row
+{
+  align-items: flex-start;
+  font-weight: 700;
+}
+
+.precet-change--row
+{
+  margin: 10px 0 8px;
+  align-items: center;
+}
+
+.price--title
+{
+  font-size: 20px;
+}
+
+.price-value--block
+{
+  font-size: 21px;
+}
+
+.percent--label
+{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.exchange__inner-block--title
+{
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.persent--switch
+{
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 16px;
+  box-shadow: inset 1px 3px 7px rgba(27, 36, 40, 0.56);
+  border-radius: 8px;
+
+
+  input
+  {
+    display: none;
+  }
+
+  .exchange--slider.switch-checked
+  {
+    background-color: #3eb5f1;
+  }
+/*
+  input:focus + .exchange--slider {
+    box-shadow: 0 0 1px #2196F3;
+  }*/
+
+  .exchange--slider.switch-checked:before
+  {
+    transform: translateX(-20px);
+  }
+}
+
+.exchange--slider
+{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+
+  &:before
+  {
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 22px;
+    left: 20px;
+    bottom: -3px;
+    background-color: #fff;
+    transition: .4s;
+  }
+
+  &.round
+  {
+    border-radius: 34px;
+  }
+
+  &.round:before
+  {
+    border-radius: 50%;
+  }
+}
+
+.changes-for-period-row
+{
+  align-items: center;
+  margin: 4px 0;
+}
+
+.changes-for-period--label
+{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.changes-for-period-percent
+{
+  font-size: 16px;
+  color: #70c446;
+  font-weight: 700;
+}
+
+.changes-for-period-percent.red
+{
+  color: #c80e24;
+}
+
+@media screen and (max-width: 1250px)
+{
+  .exchange__inner--items
+  {
+    justify-content: space-around;
+  }
+
+  .exchange__inner--block
+  {
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 750px)
+{
+  .exchange__inner
+  {
+    max-width: 90%;
+  }
+
+  .exchange__inner--header
+  {
+    padding: 15px 10px;
+  }
+
+  .exchange--title
+  {
+    margin: 0 auto 0 0;
+    white-space: normal;
+  }
+
+  .exchange--select
+  {
+    width: auto;
+    margin-right: auto;
+  }
+
+  .exchange__inner
+  {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 535px)
+{
+
+  .exchange__inner
+  {
+    max-width: 95%;
+  }
+
+  .exchange--title
+  {
+    margin: 0;
+    h1
+    {
+      font-size: 22px;
+    }
+  }
+
+  .exchange__inner--header
+  {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .exchange--select
+  {
+    width: 70%;
+    /* min-width: 300px;*/
+    margin: 20px auto 0;
+  }
+
+  .exchange__inner--block
+  {
+    margin: 15px 0;
+  }
+
+  .exchange__inner-block--title
+  {
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 360px)
+{
+  .exchange__inner--block
+  {
+    max-width: 275px;
+    padding: 20px;
+  }
+}
