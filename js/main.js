@@ -156,16 +156,13 @@ TestPageCommon =
 	percentPointsManipulation: function(currentBlock, isPercent, currency)
 	{
 		var pointName = currentBlock.find('.js-short-type-points-name');
-		console.log('currentBlock 1.3', currentBlock);
 		if(isPercent)
 		{
 			pointName.html('%');
-			console.log('isPercent 1.0', isPercent);
 		}
 		else
 		{
 			TestPageCommon.changeCurrencyShortNameByRequestResult(currency, currentBlock, true);
-			console.log('isPercent 1.1', isPercent);
 		}
 	},
 

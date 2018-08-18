@@ -42,7 +42,7 @@ body {
   /*max-width: 988px;*/
   max-width: 80%;
   margin: 0 auto;
-  padding-top: 69px;
+  padding: 69px 0 45px;
 }
 
 .exchange__inner--header {
