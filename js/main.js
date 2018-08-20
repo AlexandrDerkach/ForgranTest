@@ -290,6 +290,23 @@ TestPageCommon =
 		currencyInfo.day = results.changes.price.day;
 		currencyInfo.week = results.changes.price.week;
 		currencyInfo.month = results.changes.price.month;
+	},
+
+	initPreloader: function()
+	{
+		var el = $("#hellopreloader_preload");
+
+		el.css('opacity', 1);
+
+		var interhellopreloader = setInterval(function()
+		{
+			el.css('opacity', el.css('opacity') - 0.05);
+			if(el.css('opacity') <= 0.05)
+			{
+				clearInterval(interhellopreloader);
+				el.css('display', 'none');
+			}
+		}, 16);
 	}
 };
 
@@ -369,6 +386,13 @@ TestPageSupOnReady =
 
 function bindEvents()
 {
+	$(window).on('load', function()
+	{
+		setTimeout(function()
+		{
+			TestPageCommon.initPreloader();
+		}, 500);
+	});
 	$(document).ready(
 		function()
 		{

@@ -445,3 +445,26 @@ body
     padding: 20px;
   }
 }
+
+
+/*PRELOADER STYLES*/
+
+.hellopreloader > p
+{
+  display: none;
+}
+
+.hellopreloader__preload
+{
+  display: block;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #336E7B url(http://hello-site.ru//main/images/preloads/circles.svg) center center no-repeat;
+  background-size: 190px;
+}
+
+/*PRELOADER STYLES*/
