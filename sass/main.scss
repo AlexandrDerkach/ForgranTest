@@ -107,6 +107,11 @@ body
           padding-bottom: 18px;
         }
       }
+
+      &:hover
+      {
+        
+      }
     }
   }
 }
@@ -121,6 +126,7 @@ body
   background: transparent;
   font-size: 16px;
   color: #82898e;
+  cursor: pointer;
 }
 
 .list-item-active
