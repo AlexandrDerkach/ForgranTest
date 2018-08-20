@@ -265,13 +265,18 @@ TestPageCommon =
 	{
 		for(var i = 0; i < dynamicElArr.length; i++)
 		{
-			if(dynamicElArr[i].html() < 0)
+			if(dynamicElArr[i].html() < 0 || !dynamicElArr[i].html())
 			{
 				dynamicElArr[i].closest('div').addClass('red');
 			}
 			else
 			{
 				dynamicElArr[i].closest('div').removeClass('red');
+			}
+
+			if(!dynamicElArr[i].html())
+			{
+				dynamicElArr[i].html('-')
 			}
 		}
 	},
