@@ -10,6 +10,14 @@ TestPageCommon =
 	CURRENCY_EUR_UNICODE: '&#128;',
 	CURRENCY_GBP_UNICODE: '&#163;',
 
+	COIN_TYPE_BITCOIN: 'BITCOIN',
+	COIN_TYPE_ETHEREUM: 'ETHEREUM',
+	COIN_TYPE_LITECOIN: 'LITECOIN',
+
+	BTC_BLOCK_SELECTOR: 'js-bitcoin-block',
+	ETH_BLOCK_SELECTOR: 'js-ethereum-block',
+	LTC_BLOCK_SELECTOR: 'js-litecoin-block',
+
 	getSelectChangeContainer: function(obj)
 	{
 		return $(obj).closest('.js-exchange-select');
@@ -92,6 +100,7 @@ TestPageCommon =
 		var container = TestPageCommon.getExchangeInnerContainer(obj);
 		var currency = container.find('.js-selected-item-id').val();
 		var currentBlock = el.closest('.js-exchange-inner-block');
+		var coinTypeVal = currentBlock.find('.js-coin-type-val').val();
 		var isPercent = null;
 
 
@@ -106,18 +115,31 @@ TestPageCommon =
 			isPercent = false;
 		}
 
-		TestPageCommon.getExchangeRequestData(obj, currency);
-		TestPageCommon.percentPointsManipulation(currentBlock, isPercent, currency);
 
+		TestPageCommon.getExchangeRequestData(obj, currency, coinTypeVal);
+		TestPageCommon.percentPointsManipulation(currentBlock, isPercent, currency);
 	},
 
-	getExchangeRequestData: function(obj, currency)
+	getExchangeRequestData: function(obj, currency, coinTypeVal)
 	{
 		var container = TestPageCommon.getExchangeInnerContainer(obj);
 
-		TestPageCommon.getBitcoinRequestData(container, currency);
-		TestPageCommon.getEthereumRequestData(container, currency);
-		TestPageCommon.getLiteRequestData(container, currency);
+		switch (coinTypeVal)
+		{
+			case TestPageCommon.COIN_TYPE_BITCOIN:
+				TestPageCommon.getBitcoinRequestData(container, currency);
+				break;
+			case TestPageCommon.COIN_TYPE_ETHEREUM:
+				TestPageCommon.getEthereumRequestData(container, currency);
+				break;
+			case TestPageCommon.COIN_TYPE_LITECOIN:
+				TestPageCommon.getLiteRequestData(container, currency);
+				break;
+			default:
+				TestPageCommon.getBitcoinRequestData(container, currency);
+				TestPageCommon.getEthereumRequestData(container, currency);
+				TestPageCommon.getLiteRequestData(container, currency);
+		}
 	},
 
 	changeCurrencyShortNameByRequestResult: function(currency, currentBlock, isChangeTypePoint)
@@ -169,27 +191,30 @@ TestPageCommon =
 	getBitcoinRequestData: function(container, currency)
 	{
 		var currentBlock = container.find('.js-bitcoin-block');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC' + currency;
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
+
 	},
 
 	getEthereumRequestData: function(container, currency)
 	{
 		var currentBlock = container.find('.js-ethereum-block');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/ETH' + currency;
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
 	},
 
 	getLiteRequestData: function(container, currency)
 	{
 		var currentBlock = container.find('.js-litecoin-block');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/LTC' + currency;
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
 	},
 
-	requestToApi: function(currentBlock, currency)
+	requestToApi: function(currentBlock, currency, currencyUrl)
 	{
-		var url = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC' + currency;
 		var switchCondition = currentBlock.find('.js-exchange-slider').hasClass('switch-checked');
 
 		var exchangeDynamicFields =
@@ -201,6 +226,7 @@ TestPageCommon =
 			monthChanges: currentBlock.find('.js-month-changes-value')
 		};
 
+
 		var currencyInfo =
 		{
 			last: null,
@@ -210,12 +236,10 @@ TestPageCommon =
 			month: null
 		};
 
-		TestPageCommon.requestBody(url, switchCondition, exchangeDynamicFields, currencyInfo);
-		TestPageCommon.percentPointsManipulation(currentBlock, switchCondition, currency);
-		TestPageCommon.changeCurrencyShortNameByRequestResult(currency, currentBlock, false);
+		TestPageCommon.requestBody(currencyUrl, switchCondition, exchangeDynamicFields, currencyInfo, currentBlock, currency);
 	},
 
-	requestBody: function(url, switchCondition, exchangeDynamicFields, currencyInfo)
+	requestBody: function(url, switchCondition, exchangeDynamicFields, currencyInfo, currentBlock, currency)
 	{
 		$.ajax({
 			url: url,
@@ -248,6 +272,9 @@ TestPageCommon =
 					];
 
 				TestPageCommon.checkForNegativeVal(dynamicElArr);
+
+				TestPageCommon.percentPointsManipulation(currentBlock, switchCondition, currency);
+				TestPageCommon.changeCurrencyShortNameByRequestResult(currency, currentBlock, false);
 			}
 		});
 	},
@@ -333,23 +360,27 @@ TestPageSupOnReady =
 
 	getBitcoinRequestDataById: function(currency)
 	{
-		var currentBlock = $('#ethereumBlock');
+		var currentBlock = $('#bitcoinBlock');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC' + currency;
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
 	},
 
 	getEthereumRequestDataById: function(currency)
 	{
-		var currentBlock = $('#litecoinBlock');
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		var currentBlock = $('#ethereumBlock');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/ETH' + currency;
+
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
 	},
 
 	getLiteRequestDataById: function(currency)
 	{
-		var currentBlock = $('#bitcoinBlock');
+		var currentBlock = $('#litecoinBlock');
+		var currencyUrl = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/LTC' + currency;
 
-		TestPageCommon.requestToApi(currentBlock, currency);
+		TestPageCommon.requestToApi(currentBlock, currency, currencyUrl);
 	},
 
 	initSwitchOnLoadWorking: function()
